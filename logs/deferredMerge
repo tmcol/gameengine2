@@ -1,0 +1,42 @@
+
+
+Vertex Shader:
+
+#version 330
+in vec2 in_Vertex;
+in vec2 in_UV;
+
+
+out vec2 pass_ScreenTex;
+
+void main(void)
+{
+	gl_Position = vec4(in_Vertex, 0.0, 1.0);
+	pass_ScreenTex = (gl_Position.xy / gl_Position.w)*0.5 + vec2(0.5, 0.5);
+
+}
+
+
+
+Fragment Shader:
+
+#version 330
+uniform sampler2D gTexture;
+uniform sampler2D normalTexture;
+uniform sampler2D posTexture;
+
+in vec2 pass_ScreenTex;
+
+out vec4 out_Scene;
+
+
+
+
+void main(void)
+{	
+	vec4 tex = texture(gTexture, pass_ScreenTex);
+
+    out_Scene = vec4(tex.rgb, 1.0);
+
+}
+

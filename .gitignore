@@ -1,0 +1,8 @@
+*.o
+*.d
+foo
+*~
+*.out
+*.obj
+*.swp
+project.geany

@@ -1,0 +1,9 @@
+0 HDA ATI HDMI: HDMI 0 (hw:0,3) 0
+1 HD-Audio Generic: 92HD87B2/4 Analog (hw:1,0) 0
+2 Philips SHG7980: USB Audio (hw:2,0) 0
+3 hdmi 0
+4 pulse 0
+5 default 0 Default
+6 /dev/dsp 1
+0 ALSA
+1 OSS

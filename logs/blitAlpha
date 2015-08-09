@@ -1,0 +1,52 @@
+
+
+Vertex Shader:
+
+#version 330
+
+
+uniform mat4 projectionMatrix;
+
+in vec2 in_Vertex;
+in vec2 in_UV;
+
+
+out vec2 pass_UV;
+
+
+
+
+void main(void)
+{
+	
+		gl_Position=projectionMatrix * vec4(in_Vertex.xy, 0, 1.0);
+		//gl_Position=projectionMatrix * vec4(in_Vertex, 1.0);
+		pass_UV = in_UV;
+
+}
+
+
+
+Fragment Shader:
+
+#version 330
+
+
+uniform vec4 colour = vec4(1.f, 1.f, 1.f, 1.f);
+
+uniform sampler2D colourTexture;
+
+in vec2 pass_UV;
+
+out vec4 out_Scene;
+
+
+void main(void)
+{
+
+	float a = texture(colourTexture, pass_UV).r;
+	
+	out_Scene = vec4(colour.rgb, a * colour.a);
+	//out_Scene = vec4(1,1,1,a);
+}
+
